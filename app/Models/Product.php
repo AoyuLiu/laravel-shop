@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protect $fillable = [
+    protected $fillable = [
     	'title','description','image','on_sale',
     	'rating','sold_count','review_count','price'
     ];
-    protect $casts = [
+    protected $casts = [
     	'on_sale' => 'boolean'
     ];
 
