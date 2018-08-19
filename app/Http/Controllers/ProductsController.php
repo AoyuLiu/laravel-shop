@@ -44,10 +44,12 @@ class ProductsController extends Controller
 
     public function show(Product $product, Request $request){
         
-        if (!$product->on_sale) {
+       if (!$product->on_sale) {
             throw new InvalidRequestException('商品未上架');
         }
-         $favored = false;
+
+        $favored = false;
+        
         if($user = $request->user()) {
             $favored = boolval($user->favoriteProducts()->find($product->id));
         }
