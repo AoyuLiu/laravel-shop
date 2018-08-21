@@ -3,8 +3,6 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Models\Order;
-use App\Policies\OrderPolicy;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -30,8 +28,7 @@ class AppServiceProvider extends ServiceProvider
 
 
     protected $policies = [
-        UserAddress::class => UserAddressPolicy::class,
-        Order::class       => OrderPolicy::class,
+        
 
     ];
 }
