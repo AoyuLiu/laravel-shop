@@ -91,7 +91,7 @@ class Order extends Model
     	$prefix = date('YmdHis');
     	for ($i=0; $i < 10 ; $i++ ) { 
     		$no = $prefix.str_pad(random_int(0, 999999), 6, '0', STR_PAD_LEFT);
-    		if (!staitc::query()->where('no',$no)->exists()) {
+    		if (!static::query()->where('no',$no)->exists()) {
     			return $no;
     		}
     	}
