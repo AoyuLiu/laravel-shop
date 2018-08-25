@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Providers;
+
+use App\Events\OrderReviewd;
+use App\Listeners\UpdateProductRating;
 use App\Events\OrderPaid;
 use App\Listeners\SendOrderPaidMail;
 use App\Listeners\UpdateProductSoldCount;
@@ -11,11 +14,6 @@ use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvi
 
 class EventServiceProvider extends ServiceProvider
 {
-    /**
-     * The event listener mappings for the application.
-     *
-     * @var array
-     */
     protected $listen = [
         'App\Events\Event' => [
             'App\Listeners\EventListener',
@@ -27,6 +25,9 @@ class EventServiceProvider extends ServiceProvider
         OrderPaid::class => [
             UpdateProductSoldCount::class,
             SendOrderPaidMail::class,
+        ],
+         OrderReviewd::class => [
+            UpdateProductRating::class,
         ],
     ];
 
